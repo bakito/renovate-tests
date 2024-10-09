@@ -7,7 +7,7 @@
         "Chart\\.yaml$"
       ],
       "matchStrings": [
-        "appVersion: (?<currentValue>[^\\s]+)-(\\d{2})"
+        "appVersion: (?<currentValue>[^\\s]+)-\\d{2}"
       ],
       "autoReplaceStringTemplate": "appVersion: {{{newValue}}}-00",
       "depNameTemplate": "redis",
@@ -19,9 +19,21 @@
         "Chart\\.yaml$"
       ],
       "matchStrings": [
-        "version: (?<currentValue>[^\\s]+)(\\d{2})"
+        "version: (?<currentValue>[^\\s]+)\\d{2}"
       ],
       "autoReplaceStringTemplate": "version: {{{newValue}}}00",
+      "depNameTemplate": "redis",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "^Jenkinsfile$"
+      ],
+      "matchStrings": [
+        "var VERSION = \\\"(?<currentValue>[^\\s]+)\\\"\\svar PATCH = \\\"\\d{2}\\\""
+      ],
+      "autoReplaceStringTemplate": "var VERSION = \"{{{newValue}}}\"\nvar PATCH = \"00\"",
       "depNameTemplate": "redis",
       "datasourceTemplate": "docker"
     }
