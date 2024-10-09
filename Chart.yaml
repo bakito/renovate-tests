@@ -1,6 +1,4 @@
 apiVersion: v2
-name: redis test
-# renovate: packageName=redis
-version: 7.1.101
-# renovate: packageName=redis
-appVersion: 7.1.0-01
+name: renovate-test
+version: 6.1.100
+appVersion: 6.1.1-01

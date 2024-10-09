@@ -3,15 +3,29 @@
   "customManagers": [
     {
       "customType": "regex",
-      "datasourceTemplate": "docker",
-      "description": "Update Chart.yaml",
       "fileMatch": [
-        "^Chart\\.yaml$"
+        "Chart\\.yaml$"
       ],
       "matchStrings": [
-        "# renovate: packageName=(?<packageName>.+?)\\s[a-z]*[vV]ersion: (?<currentValue>.+?)([-]?)(\\d{2})\\s"
-      ]
+        "appVersion: (?<currentValue>[^\\s]+)-(\\d{2})"
+      ],
+      "autoReplaceStringTemplate": "appVersion: {{{newValue}}}-00",
+      "depNameTemplate": "redis",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "Chart\\.yaml$"
+      ],
+      "matchStrings": [
+        "version: (?<currentValue>[^\\s]+)(\\d{2})"
+      ],
+      "autoReplaceStringTemplate": "version: {{{newValue}}}00",
+      "depNameTemplate": "redis",
+      "datasourceTemplate": "docker"
     }
   ],
-  "dependencyDashboard": true
+  "dependencyDashboard": true,
+  "recreateWhen": "always"
 }
