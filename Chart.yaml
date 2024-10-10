@@ -1,4 +1,4 @@
 apiVersion: v2
 name: renovate-test
-version: 6.1.100
-appVersion: 6.1.1-01
+version: 6.2.1600
+appVersion: 6.2.16-00
