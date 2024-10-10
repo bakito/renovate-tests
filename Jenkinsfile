@@ -1,2 +1,2 @@
-var VERSION = "6.1.1"
-var PATCH = "01"
+var VERSION = "7.4.1"
+var PATCH = "00"
